@@ -42,8 +42,23 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library1.fs" />
-    <None Include="Script.fsx" />
+    <Compile Include="Basics.fs" />
+    <Compile Include="HowToMakeDotNetAndOoThings.fs" />
+    <Compile Include="HowToConsumeDotNetAndOoThings.fs" />
+    <Compile Include="HowThingsCompile.fs" />
+    <Compile Include="NamingThings.fs" />
+    <Compile Include="OrderMatters.fs" />
+    <Compile Include="FunctionOverloading.fs" />
+    <Compile Include="Equality.fs" />
+    <Compile Include="Collections.fs" />
+    <Compile Include="AugmentationsAndExtensionMethods.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSharp.Common\CSharp.Common.csproj">
+      <Name>CSharp.Common</Name>
+      <Project>{43e3e357-8567-4388-a626-409a6e198549}</Project>
+      <Private>True</Private>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>

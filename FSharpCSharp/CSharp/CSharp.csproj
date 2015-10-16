@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FSharp.Core, Version=4.3.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,11 +43,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="20 HowThingsCompile.cs" />
+    <Compile Include="25 NamingThings.cs" />
+    <Compile Include="30 Equality.cs" />
+    <Compile Include="ScratchPad.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSharp.Common\CSharp.Common.csproj">
+      <Project>{43e3e357-8567-4388-a626-409a6e198549}</Project>
+      <Name>CSharp.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FSharp.Common\FSharp.Common.fsproj">
+      <Project>{81fc7680-74a2-473a-99f4-601d792a6424}</Project>
+      <Name>FSharp.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
