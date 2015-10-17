@@ -10,12 +10,11 @@ type ImplementsInterface (propertyValue) =
         member this.Method () = ()
         member this.Function (name, age) = 1
 
-
-    // object expression
-    member this.MyThingFromInterface =
-        { new IMyInterface with
-            member x.Name with get() = propertyValue and set(_) = ()
-            member x.Age with get() = 27 and set(_) = () }
+    member this.MyThingFromInterface2 =
+        { new ICSharpInterface with
+            member x.Property with get() = "foo bar" and set(_) = ()
+            member x.Method () = ()
+            member x.Function (name, age) = 77 }
 
 
 
