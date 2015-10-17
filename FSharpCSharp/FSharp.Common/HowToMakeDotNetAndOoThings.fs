@@ -19,16 +19,10 @@ type MonthEnum =
     | December = 12
 
 
-
-
-
 // class
 type MyClass () =
     member val Name = "" with get, set
     member val Age = 0 with get, set
-
-
-
 
 
 // struct
@@ -40,9 +34,6 @@ type MyStruct = // <-- no primary constructor here
     end
 
 
-
-
-
 // interface
 // No keyword; contains only abstract members: no implementation, no let or do bindings, no constructor
 type IMyInterface =
@@ -50,28 +41,22 @@ type IMyInterface =
     abstract member Age : int with get, set
 
 
-
-
-
-// Add the AbstractClassAttribute and that interface becomes an abstract class
+// Add the AbstractClassAttribute and that same interface code becomes an abstract class.
 // No keyword, just an attribute. May have implementation, let and do bindings.
 [<AbstractClass>]
 type NotAnInterface =
     abstract member Name : string with get, set
     abstract member Age : int with get, set
-
-
-
     
 
 // abstract class
 [<AbstractClass>]
 type MyAbstractClass () =
 
+    // A virtual function is declared in two parts:
+    // 1. the "abstract" declaration, and
+    // 2. a default implementation.
     abstract member Name : string with get, set
-
-    // A virtual function is declared in two parts: the "abstract" (above)
-    // and a default implementation (below).
     default val Name : string = "" with get, set
 
     // Implement an interface
@@ -89,7 +74,7 @@ type MyAbstractClass () =
 
     // Implement a protected function
     // (visible in dervied classes only)
-    // abstract member protected ImplementMe () = do something 
+//     abstract member protected ImplementMe () = do something 
     //
     // Just kidding. There is no "protected" access modifier in F#!
     //

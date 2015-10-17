@@ -11,13 +11,11 @@ type MyRecord = {
 
 
 
-
 [<CLIMutable>]
-type MutableRecord = {
+type Thing = {
     name : string
     age : int option
 }
-
 
 
     
@@ -30,14 +28,10 @@ type MyUnion =
 
 
 
-
-
-
 module MyModule = 
 
     // custom operators
     let public (/~/) pattern input = Regex.IsMatch (pattern, input)
-
 
 
 
@@ -106,35 +100,19 @@ module ExpressionsAndQuotationsOhMy =
     open System.Linq.Expressions
     open Microsoft.FSharp.Linq.RuntimeHelpers
 
-//    let squareExpr : Expression<Func<int,int>> =
-//        fun i -> i * i
+    // There is no way to create an Expression from a lambda in F#
 
+    // No
+//    let squareExpr : Expression<Func<int,int>> = fun i -> i * i
 
+    // No
+//    let squareExpr = Expression.Lambda<Func<int,int>>(fun i -> i * i)
 
-
-
-
-
-
-
-
-//        Expression.Lambda<Func<int,int>>(fun i -> i * i)
-
-
-
-
-
-
-
-
-
-
-
-
-
-//        <@ fun i -> i * i @>
-//        |> LeafExpressionConverter.QuotationToExpression
-//        :?> MethodCallExpression
-//        |> fun call -> call.Arguments.[0]
-//        :?> LambdaExpression
-//        |> fun lambda -> Expression.Lambda<Func<int,int>>(lambda.Body, lambda.Parameters)
+    // No
+        let squareExpression =
+            <@ fun i -> i * i @> // <-- This is a quotation. These are awesome, but getting from this to System.Linq.Expressions types isn't.
+            |> LeafExpressionConverter.QuotationToExpression
+            :?> MethodCallExpression
+            |> fun call -> call.Arguments.[0]
+            :?> LambdaExpression
+            |> fun lambda -> Expression.Lambda<Func<int,int>>(lambda.Body, lambda.Parameters)

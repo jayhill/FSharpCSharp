@@ -8,7 +8,7 @@
 
 // map<'key,'value> implements IDictionary<'key,'value>
 // System.Collections.Generic.Dictionary<'key,'value> is also useful in F#.
-// It is faster than Map for large sets.
+// It is faster than Map for large sets. Map is implemented as a binary tree.
 
 // list<'t> does NOT implement IList<'t>!
 // list is central to many functional idioms in F# and has the richest
@@ -21,4 +21,5 @@
 // which means your F# functions can accept seqs and be passed
 // any IEnumerable<T> in C# code.
 
+// This can be called from C# by passing any collection that implements IEnumerable<T>
 let CanEnterExpressLane items = Seq.length items <= 10

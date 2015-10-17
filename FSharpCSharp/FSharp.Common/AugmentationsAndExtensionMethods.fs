@@ -54,18 +54,22 @@ module Consumption =
     open DotNetExtensionMethod
 
 //    let dotNextExtensionMethod = (4.5m).Rounded(); // NOPE
-    let dotNextExtensionMethod = Rounded 4.5m
+    let dotNextExtensionMethod = Rounded 4.5m // SURE!
 
-
-
+    // Oddly, you can call an extension method as an instance member when it is
+    // defined in C#. You can't when it is defined in F#.
 
     open System.Collections.Generic
     open CSharp.Common
 
+    // Call an extension method that is declared in a C# -- this works
     let cSharpExtensionMethod (coll:IEnumerable<'t>) =
         coll.Second();
 
     open AugmentationsAndExtensionMethods
     
+    // Call an F# optional extension (function)
     let optionalExtensionMethod = 4.4.ToExclamatoryString ()
+
+    // Call an F# optional extension (property)
     let optionExtensionProperty = 4.5.IsEnumerable

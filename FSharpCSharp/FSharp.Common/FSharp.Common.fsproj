@@ -55,7 +55,6 @@
     <Compile Include="HowThingsCompile.fs" />
     <Compile Include="TypeProviders.fs" />
     <Compile Include="NamingThings.fs" />
-    <Compile Include="OrderMatters.fs" />
     <Compile Include="FunctionOverloading.fs" />
     <Compile Include="Equality.fs" />
     <Compile Include="Collections.fs" />
