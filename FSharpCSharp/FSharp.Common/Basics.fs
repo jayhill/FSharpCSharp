@@ -1,7 +1,7 @@
 ﻿module Basics
 
 // unit is a thing
-// fn() is not an empty arg list
+// fn() does not an empty arg list*
 type UnitFn = unit -> unit
 
 let unitFn1 () = ()
