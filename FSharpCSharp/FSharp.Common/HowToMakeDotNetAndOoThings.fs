@@ -32,7 +32,7 @@ type MyClass () =
 
 
 // struct
-type MyStruct = // <-- no default, primary constructor
+type MyStruct = // <-- no primary constructor here
     struct // <- has its own keyword
         val Name : string
         val Age : int
