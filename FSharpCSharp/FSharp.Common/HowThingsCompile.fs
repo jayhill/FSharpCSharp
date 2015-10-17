@@ -8,11 +8,18 @@ type MyRecord = {
     age : int option
 }
 
+
+
+
+
 [<CLIMutable>]
 type MutableRecord = {
     name : string
     age : int option
 }
+
+
+
     
 
 type MyUnion =
@@ -22,10 +29,18 @@ type MyUnion =
     | Third of double * string
 
 
+
+
+
+
 module MyModule = 
 
     // custom operators
     let public (/~/) pattern input = Regex.IsMatch (pattern, input)
+
+
+
+
 
     
 // 1 argument
@@ -47,6 +62,10 @@ module MyModule =
         Func<int,int>(fun i -> multiply i 3)
 
 
+
+
+
+
 // 2 arguments (curried or tupled)
 
     let multiply_a x y = x * y
@@ -66,6 +85,56 @@ module MyModule =
         fun (x,y) -> doMult x y
 
 
+
+
+
+
+
 // partial application
 
     let quadruple = multiply_e 4
+
+
+
+
+
+
+// Expressions and Quotations
+module ExpressionsAndQuotationsOhMy =
+
+    open System
+    open System.Linq.Expressions
+    open Microsoft.FSharp.Linq.RuntimeHelpers
+
+//    let squareExpr : Expression<Func<int,int>> =
+//        fun i -> i * i
+
+
+
+
+
+
+
+
+
+
+//        Expression.Lambda<Func<int,int>>(fun i -> i * i)
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        <@ fun i -> i * i @>
+//        |> LeafExpressionConverter.QuotationToExpression
+//        :?> MethodCallExpression
+//        |> fun call -> call.Arguments.[0]
+//        :?> LambdaExpression
+//        |> fun lambda -> Expression.Lambda<Func<int,int>>(lambda.Body, lambda.Parameters)

@@ -54,12 +54,13 @@ module Names =
 
 
 [<AutoOpen>]
-//[<CompiledNameAttribute("StringUtils")>]
+[<CompilationRepresentation(CompilationRepresentationFlags.ModuleSuffix)>] // look it up
 module String =
     let equalsIgnoreCase a b =
         System.String.Equals(a, b, System.StringComparison.OrdinalIgnoreCase)
 
-    let concat () = ()
+    let concat () = String.concat "," ["foo"; "bar"; "baz"]
 
 module XYZ =
     let foo = String.equalsIgnoreCase "foo" "FOO"
+//    let whichConcat () = String.concat "," ["foo"; "bar"; "baz"]

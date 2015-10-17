@@ -32,11 +32,11 @@ type MyClass () =
 
 
 // struct
-type MyStruct =
+type MyStruct = // <-- no default, primary constructor
     struct // <- has its own keyword
         val Name : string
         val Age : int
-        new (name, age) = { Name = name; Age = age }
+        new (name, age) = { Name = name; Age = age } // <-- constructor
     end
 
 
@@ -44,7 +44,7 @@ type MyStruct =
 
 
 // interface
-// No keyword; contains only abstract members: no implementation, no let or do bindings
+// No keyword; contains only abstract members: no implementation, no let or do bindings, no constructor
 type IMyInterface =
     abstract member Name : string with get, set
     abstract member Age : int with get, set
